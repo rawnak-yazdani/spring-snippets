@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         /**
          *  AbstractApplicationContext is spring container, and it is using Beans.xml (configuration metadata)
+         *  Container will create the beans/objects whether getBean() is used or not
          */
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 //        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
