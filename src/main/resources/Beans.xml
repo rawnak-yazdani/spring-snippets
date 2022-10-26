@@ -8,7 +8,7 @@
 <!--      A bean can be considered as an object (of HelloWorld in this case).  -->
     <bean id = "helloWorld" class = "io.welldev.HelloWorld" init-method="init"
           destroy-method="destroy">
-<!--        This is the setter of message field of HelloWorld class     -->
+<!--        Property value will be passed as the argument of the setter of message field of HelloWorld class     -->
         <property name="message" value = "Hello World!"/>
     </bean>
 
