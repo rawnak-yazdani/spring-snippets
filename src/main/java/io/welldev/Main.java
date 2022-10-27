@@ -7,22 +7,22 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
         /**
-         *  AbstractApplicationContext is spring container, and it is using Beans.xml (configuration metadata)
-         *  Container will create the singleton beans/objects whether container.getBean() is used or not
-         *  But it will create prototype beans/objects only when container.getBean() is called.
+         *  AbstractApplicationContext is Spring IoC container, and it is using Beans.xml (configuration metadata)
+         *  AbstractApplicationContext Container will create the singleton beans/objects whether springContainer.getBean() is used or not (BeanFactory doesn't follow this)
+         *  But it will create prototype beans/objects only when springContainer.getBean() is called.
          */
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        AbstractApplicationContext springContainer = new ClassPathXmlApplicationContext("Beans.xml");
 //        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 
         /**
-         * Object is created by the spring container
+         * Object is created by the spring container and inversion of control is occurring (not DI)
          */
-        HelloWorld objA = (HelloWorld) context.getBean("helloWorld");
+        HelloWorld objA = (HelloWorld) springContainer.getBean("helloWorld");
 //        HelloWorld objB = (HelloWorld) context.getBean("helloWorld2");
 
         objA.getMessage();
 //        objB.getMessage();
-        context.registerShutdownHook();     // it will not work with ApplicationContext
+        springContainer.registerShutdownHook();     // it will not work with ApplicationContext
 
 //        objA.setMessage("I'm Object A");
 //        objA.getMessage();
