@@ -3,8 +3,8 @@ package io.welldev;
 public class HelloWorld {
     private String message;
 
-    public HelloWorld(){
-        System.out.println("Constructor is called");
+    public HelloWorld(int x){
+        System.out.println("Constructor is called: "+x);
     }
     // This is called from Beans.xml
     public void setMessage(String message){

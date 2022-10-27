@@ -8,14 +8,18 @@
 <!--      A bean can be considered as an object (of HelloWorld in this case).  -->
     <bean id = "helloWorld" class = "io.welldev.HelloWorld" init-method="init"
           destroy-method="destroy" scope="prototype">
-<!--        Property value will be passed as the argument of the setter of message field of HelloWorld class     -->
+<!--      constructor-arg value will be passed as the argument of the constructor of HelloWorld class     -->
+        <constructor-arg name="x" value="11"/>
+<!--      Property value will be passed as the argument of the setter of message field of HelloWorld class     -->
         <property name="message" value = "Hello World!"/>
     </bean>
 
-    <!--      A bean can be considered as an object (of HelloWorld in this case).  -->
+<!--      A bean can be considered as an object (of HelloWorld in this case).  -->
     <bean id = "helloWorld2" class = "io.welldev.HelloWorld" init-method="init"
           destroy-method="destroy">
-<!--                Property value will be passed as the argument of the setter of message field of HelloWorld class     -->
+<!--      constructor-arg value will be passed as the argument of the constructor of HelloWorld class     -->
+        <constructor-arg name="x" value="12"/>
+<!--      Property value will be passed as the argument of the setter of message field of HelloWorld class     -->
         <property name="message" value = "Hello World 2!"/>
     </bean>
 
