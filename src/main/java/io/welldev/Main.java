@@ -20,9 +20,11 @@ public class Main {
          */
         Employee employee1 = springContainer.getBean(Accountant.class);
         Employee employee2 = springContainer.getBean(Manager.class);
+        Employee employee3 = springContainer.getBean("accountanTTT", Employee.class);
 
         employee1.doWork();
         employee2.doWork();
+        employee3.doWork();
 
         springContainer.close();
 
