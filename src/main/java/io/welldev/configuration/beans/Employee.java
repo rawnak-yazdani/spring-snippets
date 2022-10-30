@@ -1,4 +1,4 @@
-package io.welldev.beans;
+package io.welldev.configuration.beans;
 
 public interface Employee {
     void doWork();

@@ -1,8 +1,8 @@
 package io.welldev;
 
-import io.welldev.beans.Accountant;
-import io.welldev.beans.Employee;
-import io.welldev.beans.Manager;
+import io.welldev.configuration.beans.Accountant;
+import io.welldev.configuration.beans.Employee;
+import io.welldev.configuration.beans.Manager;
 import io.welldev.configuration.ConfigurationMetadata;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
