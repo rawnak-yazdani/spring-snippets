@@ -22,10 +22,11 @@ public class Main {
          * Object is created by the spring container and inversion of control is occurring (not DI)
          */
         Employee employee1 = springContainer.getBean(Accountant.class);
-        Employee employee2 = springContainer.getBean(Manager.class);
+        Manager employee2 = springContainer.getBean(Manager.class);
 
         employee1.doWork();
         employee2.doWork();
+        employee2.callMetting();
 
         springContainer.close();
 
