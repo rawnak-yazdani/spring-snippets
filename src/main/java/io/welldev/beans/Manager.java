@@ -1,8 +1,12 @@
-package io.welldev.components;
+package io.welldev.beans;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+/**
+ * @Component is used to denote a bean/object
+ */
 @Component
 public class Manager implements Employee {
     Accountant accountant1;
@@ -12,6 +16,12 @@ public class Manager implements Employee {
      */
     @Autowired
     Accountant accountant3;
+    /**
+     * @Qualifier is used to denote specific child/implementation of a class/interface
+     */
+    @Autowired
+    @Qualifier("cashieRRR")
+    Employee employee;
 
     /**
      * Constructor dependency injection (It does not require any annotation)
@@ -34,11 +44,16 @@ public class Manager implements Employee {
     }
 
     public void callMetting() {
-        System.out.println("Constructor dependency injection: ");
+        System.out.println("\n\nConstructor dependency injection: ");
         accountant1.doWork();
-        System.out.println("Setter dependency injection: ");
+
+        System.out.println("\n\nSetter dependency injection: ");
         accountant2.doWork();
-        System.out.println("Field dependency injection: ");
+
+        System.out.println("\n\nField dependency injection: ");
         accountant3.doWork();
+
+        System.out.println("\n\nField dependency injection with @Qualifier: ");
+        employee.doWork();
     }
 }

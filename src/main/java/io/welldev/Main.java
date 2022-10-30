@@ -1,13 +1,10 @@
 package io.welldev;
 
-import io.welldev.components.Accountant;
-import io.welldev.components.Employee;
-import io.welldev.components.Manager;
+import io.welldev.beans.Accountant;
+import io.welldev.beans.Employee;
+import io.welldev.beans.Manager;
 import io.welldev.configuration.ConfigurationMetadata;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
