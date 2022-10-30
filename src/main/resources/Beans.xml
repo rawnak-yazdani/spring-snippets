@@ -5,21 +5,21 @@
        xsi:schemaLocation = "http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-<!--      A bean can be considered as an object (of HelloWorld in this case).  -->
-    <bean id = "helloWorld" class = "io.welldev.HelloWorld" init-method="init"
+<!--      A bean can be considered as an object (of HelloWorldBean in this case).  -->
+    <bean id = "helloWorld" class = "io.welldev.beans.HelloWorldBean" init-method="init"
           destroy-method="destroy" scope="prototype">
-<!--      constructor-arg value will be passed as the argument of the constructor of HelloWorld class     -->
+<!--      constructor-arg value will be passed as the argument of the constructor of HelloWorldBean class     -->
         <constructor-arg name="x" value="11"/>
-<!--      Property value will be passed as the argument of the setter of message field of HelloWorld class     -->
+<!--      Property value will be passed as the argument of the setter of message field of HelloWorldBean class     -->
         <property name="message" value = "Hello World!"/>
     </bean>
 
-<!--      A bean can be considered as an object (of HelloWorld in this case).  -->
-    <bean id = "helloWorld2" class = "io.welldev.HelloWorld" init-method="init"
+<!--      A bean can be considered as an object (of HelloWorldBean in this case).  -->
+    <bean id = "helloWorld2" class = "io.welldev.beans.HelloWorldBean" init-method="init"
           destroy-method="destroy">
-<!--      constructor-arg value will be passed as the argument of the constructor of HelloWorld class     -->
+<!--      constructor-arg value will be passed as the argument of the constructor of HelloWorldBean class     -->
         <constructor-arg name="x" value="12"/>
-<!--      Property value will be passed as the argument of the setter of message field of HelloWorld class     -->
+<!--      Property value will be passed as the argument of the setter of message field of HelloWorldBean class     -->
         <property name="message" value = "Hello World 2!"/>
     </bean>
 
