@@ -4,6 +4,7 @@ import io.welldev.configuration.beans.Accountant;
 import io.welldev.configuration.beans.Employee;
 import io.welldev.configuration.beans.Manager;
 import io.welldev.configuration.ConfigurationMetadata;
+import io.welldev.configuration.beans.Waiter;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
@@ -21,10 +22,12 @@ public class Main {
         Employee employee1 = springContainer.getBean(Accountant.class);
         Employee employee2 = springContainer.getBean(Manager.class);
         Employee employee3 = springContainer.getBean("accountanTTT", Employee.class);
+        Employee employee4 = springContainer.getBean("waiteRRR", Employee.class);
 
         employee1.doWork();
         employee2.doWork();
         employee3.doWork();
+        employee4.doWork();
 
         springContainer.close();
 
