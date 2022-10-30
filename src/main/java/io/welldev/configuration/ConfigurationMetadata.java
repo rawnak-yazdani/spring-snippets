@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("io.welldev.beans")
+@ComponentScan("io.welldev.configuration.beans")
 public class ConfigurationMetadata {
 
 }
