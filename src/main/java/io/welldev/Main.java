@@ -22,12 +22,32 @@ public class Main {
          */
         StudentDaoImpl studentDaoImpl = (StudentDaoImpl) springContainer.getBean(StudentDaoImpl.class);
 
-        System.out.println("------Records Creation--------");
-        studentDaoImpl.insert("Zara", 11);
-        studentDaoImpl.insert("Nuha", 2);
-        studentDaoImpl.insert("Ayan", 15);
+//        System.out.println("------Records Creation--------");
+//        studentDaoImpl.insert("Zara", 11);
+//        studentDaoImpl.insert("Nuha", 2);
+//        studentDaoImpl.insert("Ayan", 15);
 
-        System.out.println("------Listing Multiple Records--------");
+//        System.out.println("------Listing Multiple Records--------");
+//        List<Student> students = studentDaoImpl.listStudents();
+
+//        for (Student record : students) {
+//            System.out.print("ID : " + record.getId());
+//            System.out.print(", Name : " + record.getName());
+//            System.out.println(", Age : " + record.getAge());
+//        }
+
+//        System.out.println("----Updating Record with ID = 2 -----");
+//        studentDaoImpl.update(2, 30);
+
+//        System.out.println("----Listing Record with ID = 2 -----");
+//        Student student = studentDaoImpl.getStudent(2);
+//        System.out.print("ID : " + student.getId());
+//        System.out.print(", Name : " + student.getName());
+//        System.out.println(", Age : " + student.getAge());
+
+        studentDaoImpl.performMultipleActions("Abir Zaman", 25, 21);
+
+        System.out.println("------Listing All Records--------");
         List<Student> students = studentDaoImpl.listStudents();
 
         for (Student record : students) {
@@ -35,15 +55,6 @@ public class Main {
             System.out.print(", Name : " + record.getName());
             System.out.println(", Age : " + record.getAge());
         }
-
-        System.out.println("----Updating Record with ID = 2 -----");
-        studentDaoImpl.update(2, 20);
-
-        System.out.println("----Listing Record with ID = 2 -----");
-        Student student = studentDaoImpl.getStudent(2);
-        System.out.print("ID : " + student.getId());
-        System.out.print(", Name : " + student.getName());
-        System.out.println(", Age : " + student.getAge());
 
         springContainer.close();
 
