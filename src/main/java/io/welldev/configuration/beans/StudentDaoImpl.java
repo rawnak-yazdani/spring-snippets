@@ -14,12 +14,12 @@ import java.util.List;
 public class StudentDaoImpl implements StudentDao {
 
     //    @Autowired
-//    @Qualifier("driverManager")
+//    @Qualifier("dataSource")
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 
     @Autowired
-    @Qualifier("driverManager")
+    @Qualifier("dataSource")
     @Override
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
