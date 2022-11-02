@@ -90,6 +90,7 @@ public class StudentDaoImpl implements StudentDao {
         } catch (Exception exception) {
             System.out.println("Transaction Failed: " + exception);
             platformTransactionManager.rollback(transactionStatus);
+//            throw exception;
         }
     }
 }
