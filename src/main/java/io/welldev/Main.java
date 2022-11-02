@@ -3,12 +3,14 @@ package io.welldev;
 import io.welldev.configuration.JDBCConfig;
 import io.welldev.configuration.beans.StudentDaoImpl;
 import io.welldev.pojo.Student;
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
 
 public class Main {
+    static Logger logger = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
         /**
          *  AnnotationConfigApplicationContext is Spring IoC container, and it is using ConfigurationMetadata (configuration metadata)
@@ -45,18 +47,24 @@ public class Main {
 //        System.out.print(", Name : " + student.getName());
 //        System.out.println(", Age : " + student.getAge());
 
-        studentDaoImpl.performMultipleActions("Abir Zaman", 25, 21);
-
-        System.out.println("------Listing All Records--------");
-        List<Student> students = studentDaoImpl.listStudents();
-
-        for (Student record : students) {
-            System.out.print("ID : " + record.getId());
-            System.out.print(", Name : " + record.getName());
-            System.out.println(", Age : " + record.getAge());
-        }
+//        studentDaoImpl.performMultipleActions("Abir Zaman", 25, 21);
+//
+//        System.out.println("------Listing All Records--------");
+//        List<Student> students = studentDaoImpl.listStudents();
+//
+//        for (Student record : students) {
+//            System.out.print("ID : " + record.getId());
+//            System.out.print(", Name : " + record.getName());
+//            System.out.println(", Age : " + record.getAge());
+//        }
 
         springContainer.close();
 
+//        Logger logger = Logger
+//        Logger logger = Logger.getLogger(Main.class.getName());
+
+        logger.info("This is info message");
+//        logger.error("This is error message");
+        logger.error("This is error message 2");
     }
 }
