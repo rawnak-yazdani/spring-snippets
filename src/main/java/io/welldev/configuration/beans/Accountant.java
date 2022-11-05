@@ -6,16 +6,16 @@ import org.springframework.stereotype.Component;
 /**
  * @Component is used to denote a bean/object
  */
-@Component
+//@Component
 public class Accountant implements Employee{
-    Employee employee;
+//    Employee employee;
 
     /**
      * @Qualifier is used to denote specific child/implementation of a class/interface
      */
-    public Accountant(@Qualifier("cashieRRR") Employee employee) {
-        this.employee = employee;
-    }
+//    public Accountant(@Qualifier("cashieRRR") Employee employee) {
+//        this.employee = employee;
+//    }
 
     public void doWork() {
         System.out.println("Auditing Accounts...");
