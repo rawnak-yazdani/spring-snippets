@@ -14,6 +14,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+<!--    maven local repo: ~/.m2/repository/-->
+<!--    maven central repo: https://repo.maven.apache.org/maven2/-->
+<!--    maven central repo search: https://search.maven.org/-->
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
