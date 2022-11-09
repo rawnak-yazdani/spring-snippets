@@ -5,17 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!--      A bean can be considered as an object (of HelloWorld in this case).  -->
-    <bean id="helloWorld" class="io.welldev.HelloWorld" init-method="init"
-          destroy-method="destroy">
-        <!--        Property value will be passed as the argument of the setter of message field of HelloWorld class     -->
-        <property name="message" value="Hello World!"/>
-    </bean>
-
-    <bean id="cStartEventHandler" class="io.welldev.CStartEventHandler"/>
-    <bean id="cStartEventHandler2" class="io.welldev.CStartEventHandler2"/>
-
-    <bean id="cStopEventHandler" class="io.welldev.CStopEventHandler"/>
-    <bean id="cStopEventHandler2" class="io.welldev.CStopEventHandler"/>
+    <bean id = "customEventHandler" class = "io.welldev.CustomEventHandler"/>
+    <bean id = "customEventPublisher" class = "io.welldev.CustomEventPublisher"/>
 
 </beans>

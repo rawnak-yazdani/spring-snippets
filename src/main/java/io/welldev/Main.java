@@ -9,16 +9,10 @@ public class Main {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 
-        /**
-         * It will invoke all start events of all beans which implements ApplicationListener<ContextStartedEvent>
-        */
-        context.start();
+        CustomEventPublisher cvp = (CustomEventPublisher) context.getBean("customEventPublisher");
 
-//        HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
-//        obj.getMessage();
-
-        context.stop();
-        context.registerShutdownHook();     // it will not work with ApplicationContext
+        cvp.publish();
+        cvp.publish();
 
     }
 }
