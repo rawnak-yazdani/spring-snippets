@@ -1,4 +1,4 @@
-package config;
+package io.welldev.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"io.welldev.app"})
+@ComponentScan({"io.welldev.controller"})
 public class WebMvcConfig implements WebMvcConfigurer {
     @Bean
     public InternalResourceViewResolver resolver() {
