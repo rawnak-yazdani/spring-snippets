@@ -29,5 +29,7 @@ public class Main {
 //
 //        HelloWorld objB = (HelloWorld) context.getBean("helloWorld");
 //        objB.getMessage();
+
+
     }
 }
