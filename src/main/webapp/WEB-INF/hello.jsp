@@ -7,6 +7,9 @@
   <title>Hello</title>
 </head>
 <body>
-${message}
+${message} <br/>  <%--This comes from ModelAndView--%>
+ModelAndView: <%= request.getAttribute("message")%> <br/>   <%--This comes from ModelAndView--%>
+<%--<%= session.getAttribute("name")%> <br/> <br/> <br/>--%>
+${name2}
 </body>
 </html>

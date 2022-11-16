@@ -6,10 +6,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AnotherController {
+    /**
+     * Scope of ModelAndView is current request
+     */
     @GetMapping("/")
     public ModelAndView hello() {
 
-        String helloWorldMessage = "Another world from java2blog!";
+        String helloWorldMessage = "This is coming from ModelAndView";
         return new ModelAndView("hello", "message", helloWorldMessage);
     }
 }

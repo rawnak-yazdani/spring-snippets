@@ -9,5 +9,8 @@
 <body>
 Message:<br/>
 <a href="/helloworld">Click here to read hello message </a>
+<%= request.getAttribute("message")%> <br/>   <%--This comes from ModelAndView--%>
+<%= session.getAttribute("name")%> <br/> <br/> <br/>
+${tipu}
 </body>
 </html>
