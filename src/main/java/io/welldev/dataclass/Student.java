@@ -1,8 +1,17 @@
 package io.welldev.dataclass;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "student")
 public class Student {
+    @Column(name = "age")
     private Integer age;
+    @Column(name = "name")
     private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
     public void setAge(Integer age) {
