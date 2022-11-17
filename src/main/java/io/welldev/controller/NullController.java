@@ -1,4 +1,4 @@
-package org.arpit.java2blog.springmvc.controller;
+package io.welldev.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
