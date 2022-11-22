@@ -49,6 +49,11 @@
             <version>${jsp.version}</version>
             <scope>provided</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupid>com.fasterxml.jackson.core</groupid>-->
+<!--            <artifactid>jackson-databind</artifactid>-->
+<!--            <version>${jackson.library}</version>-->
+<!--        </dependency>-->
     </dependencies>
     <!--  <build>-->
     <!--    <finalName>SpringMVCHelloWorldExample</finalName>-->
@@ -74,10 +79,11 @@
         <!--    <maven.compiler.source>1.8</maven.compiler.source>-->
         <!--    <maven.compiler.target>1.8</maven.compiler.target>-->
         <failOnMissingWebXml>false</failOnMissingWebXml>
-<!--        <spring.version>5.2.0.RELEASE</spring.version>-->
+        <!--        <spring.version>5.2.0.RELEASE</spring.version>-->
         <jstl.version>1.2.1</jstl.version>
         <tld.version>1.1.2</tld.version>
         <servlets.version>3.1.0</servlets.version>
         <jsp.version>2.3.1</jsp.version>
+        <jackson.library>2.7.5</jackson.library>
     </properties>
 </project>
