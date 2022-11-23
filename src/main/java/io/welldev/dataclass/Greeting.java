@@ -2,8 +2,11 @@ package io.welldev.dataclass;
 
 public class Greeting {
 
-    private final long id;
-    private final String content;
+    private long id;
+    private String content;
+
+    public Greeting() {
+    }
 
     public Greeting(long id, String content) {
         this.id = id;
@@ -14,7 +17,15 @@ public class Greeting {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getContent() {
         return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
