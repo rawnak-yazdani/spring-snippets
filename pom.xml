@@ -11,6 +11,19 @@
     <name>Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
+    <properties>
+        <java.version>1.6</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <spring-framework.version>4.0.3.RELEASE</spring-framework.version>
+
+        <hibernate.version>4.3.5.Final</hibernate.version>
+        <!--    <hibernate.version>3.6.9.Final</hibernate.version>-->
+
+        <logback.version>1.0.13</logback.version>
+        <slf4j.version>1.7.5</slf4j.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -19,117 +32,64 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring-framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring-framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring-framework.version}</version>
         </dependency>
-        <!-- JSTL Dependency -->
         <dependency>
-            <groupId>javax.servlet.jsp.jstl</groupId>
-            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
-            <version>1.2.2</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>runtime</scope>
         </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>taglibs</groupId>-->
-        <!--            <artifactId>standard</artifactId>-->
-        <!--            <version>${tld.version}</version>-->
-        <!--        </dependency>-->
-        <!-- JSP Dependency -->
         <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>2.3.3</version>
-            <scope>provided</scope>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>compile</scope>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.5.0</version>
         </dependency>
-
-        <!-- Spring ORM -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <!-- Hibernate Core -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.2.17.Final</version>
-        </dependency>
-        <!-- Hibernate Validator -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${hibernate.validator}</version>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
         </dependency>
     </dependencies>
-    <!--  <build>-->
-    <!--    <finalName>SpringMVCHelloWorldExample</finalName>-->
-
-    <!--    <plugins>-->
-    <!--      <plugin>-->
-    <!--        <groupId>org.apache.maven.plugins</groupId>-->
-    <!--        <artifactId>maven-compiler-plugin</artifactId>-->
-    <!--        <version>3.1</version>-->
-    <!--        <configuration>-->
-    <!--          <source>${jdk.version}</source>-->
-    <!--          <target>${jdk.version}</target>-->
-    <!--        </configuration>-->
-    <!--      </plugin>-->
-    <!--    </plugins>-->
-
-    <!--  </build>-->
-    <properties>
-<!--        <spring.version>5.3.23</spring.version>-->
-        <spring.version>5.1.0.RELEASE</spring.version>
-
-        <!--        <jdk.version>1.8</jdk.version>-->
-
-        <!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-        <!--    <maven.compiler.source>1.8</maven.compiler.source>-->
-        <!--    <maven.compiler.target>1.8</maven.compiler.target>-->
-        <!--        <failOnMissingWebXml>false</failOnMissingWebXml>-->
-        <!--        <spring.version>5.2.0.RELEASE</spring.version>-->
-        <jstl.version>1.2.1</jstl.version>
-        <tld.version>1.1.2</tld.version>
-        <servlets.version>3.1.0</servlets.version>
-        <jsp.version>2.3.1</jsp.version>
-        <hibernate.validator>5.4.1.Final</hibernate.validator>
-    </properties>
+    <build>
+        <finalName>Study-ORM-2.0</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
