@@ -1,6 +1,7 @@
 package io.welldev.model;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -18,20 +19,32 @@ public class Movie {
     private Long id;
     private String title;
     @ManyToMany
+    @JoinTable(name = "movie_actors",
+            joinColumns = { @JoinColumn(name = "fk_movie") },
+            inverseJoinColumns = { @JoinColumn(name = "fk_actor") })
+    private Set<Actor> actors = new HashSet<Actor>();
+    @ManyToMany
     @JoinTable(name = "movie_genre",
             joinColumns = { @JoinColumn(name = "fk_movie") },
             inverseJoinColumns = { @JoinColumn(name = "fk_genre") })
     private Set<Genre> genres = new HashSet<Genre>();
     private String rating;
+
     @ManyToOne
     @JoinColumn(name = "fk_director")
     private Director director;
 
-    @ManyToMany
-    @JoinTable(name = "movie_actors",
-            joinColumns = { @JoinColumn(name = "fk_movie") },
-            inverseJoinColumns = { @JoinColumn(name = "fk_actor") })
-    private Set<Actor> actors = new HashSet<Actor>();
+    @ManyToOne
+    @JoinColumn(name = "fk_country")
+    private Country country;
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 
     private int year;
 
