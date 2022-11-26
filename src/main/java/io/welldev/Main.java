@@ -11,22 +11,35 @@ public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("io.welldev.config");
 
+        IlluminatiDAO illuminatiDAO = context.getBean(IlluminatiDAO.class);
+
+        insertData(illuminatiDAO);
+
+        listAllIlluminati(illuminatiDAO);
+
+    }
+
+    private static void listAllIlluminati(IlluminatiDAO illuminatiDAO) {
+        List<Illuminati> list = illuminatiDAO.listIlluminati();
+
+        System.out.println("----------------------------------------------------------");
+        System.out.println("All Illuminatis : ");
+        for (Illuminati illuminati1 :
+                list) {
+            System.out.println(illuminati1.getName());
+        }
+        System.out.println("----------------------------------------------------------");
+    }
+
+    public static void insertData(IlluminatiDAO illuminatiDAO) {
         Illuminati illuminati = new Illuminati();
-        illuminati.setName("Bill Gates 4");
+        illuminati.setName("Bill Gates");
         illuminati.setCountry("USA");
         illuminati.setDesignation("33 Degrees");
         illuminati.setBalance(300000000);
-
-        IlluminatiDAO illuminatiDAO = context.getBean(IlluminatiDAO.class);
-//        illuminatiDAO.createIlluminati(illuminati);
-        System.out.println(illuminati.getName()+ " has joined US!! ");
-
-        List<Illuminati> list = illuminatiDAO.listIlluminati();
-        System.out.println("All Illuminatis : ");
-
-        for (Illuminati illuminati1:
-             list) {
-            System.out.println(illuminati1.getName());
-        }
+        illuminatiDAO.addIlluminati(illuminati);
+        System.out.println("----------------------------------------------------------");
+        System.out.println(illuminati.getName() + " has joined US!! ");
+        System.out.println("----------------------------------------------------------");
     }
 }

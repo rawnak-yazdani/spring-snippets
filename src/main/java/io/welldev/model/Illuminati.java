@@ -3,11 +3,11 @@ package io.welldev.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "illuminati")
+//@Table(name = "illuminati")
 public class Illuminati {
 
     @Id
-    @Column(name="id")
+//    @Column(name="id")
     @SequenceGenerator(initialValue=1, name = "project_seq1", sequenceName = "project_seq1", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project_seq1")
     private Integer id;

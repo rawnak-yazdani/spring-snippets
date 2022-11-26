@@ -22,7 +22,7 @@ public class IlluminatiDAO {
 //    }
 
 //    @Override
-    public void createIlluminati(Illuminati illuminati) {
+    public void addIlluminati(Illuminati illuminati) {
         entityManager.persist(illuminati);
     }
 
