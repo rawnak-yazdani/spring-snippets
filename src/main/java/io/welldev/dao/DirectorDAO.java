@@ -16,8 +16,6 @@ public class DirectorDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
-
-
     public void add(Director director) {
         entityManager.persist(director);
     }

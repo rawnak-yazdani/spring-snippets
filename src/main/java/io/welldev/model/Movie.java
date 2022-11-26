@@ -2,6 +2,8 @@ package io.welldev.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -18,25 +20,41 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project_seq1")
     private Long id;
     private String title;
-    @ManyToMany
-    @JoinTable(name = "movie_actors",
-            joinColumns = { @JoinColumn(name = "fk_movie") },
-            inverseJoinColumns = { @JoinColumn(name = "fk_actor") })
-    private Set<Actor> actors = new HashSet<Actor>();
-    @ManyToMany
+    @ManyToMany     // Unidirectional
     @JoinTable(name = "movie_genre",
             joinColumns = { @JoinColumn(name = "fk_movie") },
             inverseJoinColumns = { @JoinColumn(name = "fk_genre") })
+    @Fetch(value = FetchMode.JOIN)
     private Set<Genre> genres = new HashSet<Genre>();
-    private String rating;
+    @ManyToMany     // Bidirectional
+    @JoinTable(name = "movie_actors",
+            joinColumns = { @JoinColumn(name = "fk_movie") },
+            inverseJoinColumns = { @JoinColumn(name = "fk_actor") })
+    @Fetch(value = FetchMode.JOIN)
+    private Set<Actor> actors = new HashSet<Actor>();
 
-    @ManyToOne
+    @ManyToOne      // Unidirectional
     @JoinColumn(name = "fk_director")
     private Director director;
 
-    @ManyToOne
+    @ManyToOne      // Bidirectional
     @JoinColumn(name = "fk_country")
     private Country country;
+    private String rating;
+    private int year;
+
+    public Movie() {
+    }
+
+    public Movie(String title, Set<Genre> genres, String rating, Director director, Set<Actor> actors, int year, Country country) {
+        this.title = title;
+        this.genres = genres;
+        this.rating = rating;
+        this.director = director;
+        this.actors = actors;
+        this.year = year;
+        this.country = country;
+    }
 
     public Country getCountry() {
         return country;
@@ -45,8 +63,6 @@ public class Movie {
     public void setCountry(Country country) {
         this.country = country;
     }
-
-    private int year;
 
     public Long getId() {
         return id;

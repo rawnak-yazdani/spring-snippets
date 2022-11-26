@@ -1,5 +1,8 @@
 package io.welldev.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +15,16 @@ public class Actor {
     private Long id;
     private String name;
     @ManyToMany(mappedBy = "actors")
+    @Fetch(value = FetchMode.JOIN)
     private Set<Movie> movies = new HashSet<Movie>();
+
+    public Actor() {
+
+    }
+
+    public Actor(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

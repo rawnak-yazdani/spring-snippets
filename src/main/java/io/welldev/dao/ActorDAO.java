@@ -21,6 +21,13 @@ public class ActorDAO {
         entityManager.persist(actor);
     }
 
+    public void addAll(List<Actor> actorList) {
+        for (Actor a:
+                actorList) {
+            entityManager.persist(a);
+        }
+    }
+
     public Actor get(Long id) {
         return entityManager.find(Actor.class, id);
     }

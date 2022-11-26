@@ -20,6 +20,13 @@ public class GenreDAO {
         entityManager.persist(genre);
     }
 
+    public void addAll(List<Genre> genreList) {
+        for (Genre g:
+                genreList) {
+            entityManager.persist(g);
+        }
+    }
+
     public Genre get(Long id) {
         return entityManager.find(Genre.class, id);
     }

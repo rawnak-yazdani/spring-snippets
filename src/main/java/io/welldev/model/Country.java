@@ -15,6 +15,14 @@ public class Country {
 //    @JoinColumn(name = "fk_movie")
     private Set<Movie> movies = new HashSet<Movie>();
 
+    public Country() {
+
+    }
+
+    public Country(String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }
