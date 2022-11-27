@@ -19,14 +19,15 @@ public class Main {
         MovieDAO movieDAO = context.getBean(MovieDAO.class);
 
 //        insertData(actorDAO, directorDAO, genreDAO, movieDAO, countryDAO);
+        insertData2(actorDAO, directorDAO, genreDAO, movieDAO, countryDAO);
 
-        manyToManyUnidirectional(actorDAO, directorDAO, genreDAO, movieDAO, countryDAO);
-        manyToManyBidirectional(actorDAO, directorDAO, genreDAO, movieDAO, countryDAO);
+//        manyToManyUnidirectional(actorDAO, directorDAO, genreDAO, movieDAO, countryDAO);
+//        manyToManyBidirectional(actorDAO, directorDAO, genreDAO, movieDAO, countryDAO);
 
     }
 
     private static void manyToManyUnidirectional(ActorDAO actorDAO, DirectorDAO directorDAO, GenreDAO genreDAO, MovieDAO movieDAO, CountryDAO countryDAO) {
-        Movie movie = movieDAO.get(1L);
+        Movie movie = movieDAO.get(26L);
         Set<Genre> genreSet = movie.getGenres();
         List<Genre> genreList = new ArrayList<>(genreSet);
         System.out.println("--------------------------------------------------------");
@@ -38,7 +39,7 @@ public class Main {
         System.out.println("--------------------------------------------------------");
     }
     private static void manyToManyBidirectional(ActorDAO actorDAO, DirectorDAO directorDAO, GenreDAO genreDAO, MovieDAO movieDAO, CountryDAO countryDAO) {
-        Movie movie = movieDAO.get(1L);
+        Movie movie = movieDAO.get(26L);
         Set<Actor> actorSet = movie.getActors();
         List<Actor> actorList = new ArrayList<>(actorSet);
         System.out.println("--------------------------------------------------------");
@@ -140,5 +141,77 @@ public class Main {
 
         movieDAO.add(movieDhoom2);
         movieDAO.add(movieDhoom3);
+    }
+
+    private static void insertData2(ActorDAO actorDAO, DirectorDAO directorDAO, GenreDAO genreDAO, MovieDAO movieDAO, CountryDAO countryDAO) {
+
+        Genre genreAction = new Genre("Action");
+        Genre genreCrime = new Genre("Crime");
+        Genre genreThriller = new Genre("Thriller");
+        Genre genreDrama = new Genre("Drama");
+
+        Actor actorAbhishekBachchan = new Actor("Abhishek Bachchan");
+        Actor actorUdayChopra = new Actor("Uday Chopra");
+        Actor actorHrithikRoshan = new Actor("Hrithik Roshan");
+        Actor actorAamirKhan = new Actor("Aamir Khan");
+
+        Director directorSanjayGadhvi = new Director("Sanjay Gadhvi");
+        Director directorVijayKrishnaAcharya = new Director("Vijay Krishna Acharya");
+
+        Country countryIndia = new Country("India");
+
+        List<Genre> allGenres = Arrays.asList(
+                genreAction,
+                genreCrime,
+                genreThriller,
+                genreDrama
+        );
+
+        List<Genre> genresOfDhoom2 = Arrays.asList(
+                genreAction,
+                genreCrime,
+                genreThriller
+        );
+
+        List<Genre> genresOfDhoom3 = Arrays.asList(
+                genreAction,
+                genreCrime,
+                genreDrama
+        );
+
+        List<Actor> allActors = Arrays.asList(
+                actorAbhishekBachchan,
+                actorUdayChopra,
+                actorHrithikRoshan,
+                actorAamirKhan
+        );
+
+        List<Actor> actorsOfDhoom2 = Arrays.asList(
+                actorAbhishekBachchan,
+                actorUdayChopra,
+                actorHrithikRoshan
+        );
+
+        List<Actor> actorsOfDhoom3 = Arrays.asList(
+                actorAbhishekBachchan,
+                actorUdayChopra,
+                actorAamirKhan
+        );
+
+        Director directorOfDhoom2 = new Director("Sanjay Gadhvi");
+        Director directorOfDhoom3 = new Director("Vijay Krishna Acharya");
+        Country country = new Country("India");
+        Movie dhoom2 = new Movie("Dhoom 2", new HashSet<Genre>(genresOfDhoom2),
+                "6.5/10", directorOfDhoom2, new HashSet<Actor>(actorsOfDhoom2), 2006, country);
+        Movie dhoom3 = new Movie("Dhoom 3", new HashSet<Genre>(genresOfDhoom3),
+                "5.4/10", directorOfDhoom3, new HashSet<Actor>(actorsOfDhoom3), 2013, country);
+
+        genreDAO.addAll(allGenres);
+        actorDAO.addAll(allActors);
+        directorDAO.add(directorOfDhoom2);
+        directorDAO.add(directorOfDhoom3);
+        countryDAO.add(country);
+        movieDAO.add(dhoom2);
+        movieDAO.add(dhoom3);
     }
 }
