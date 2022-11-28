@@ -8,6 +8,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+/**
+ * @@EnableWebMvc provides support to &lt;mvc: annotation-driven/&gt; in xml
+ */
 @Configuration
 @EnableWebMvc
 @ComponentScan({"io.welldev.controller"})
