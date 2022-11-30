@@ -3,6 +3,7 @@ package io.welldev.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -17,6 +18,7 @@ import java.util.Properties;
 @ComponentScan({"io.welldev.config", "io.welldev.dao"})
 @Configuration
 @EnableTransactionManagement
+@EnableJpaRepositories("io.welldev.repo")
 public class JPAConfig {
 
     @Bean
