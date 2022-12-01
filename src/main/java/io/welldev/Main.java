@@ -2,7 +2,6 @@ package io.welldev;
 
 import io.welldev.dao.*;
 import io.welldev.model.*;
-import io.welldev.repo.ActorRepo;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.*;
@@ -14,7 +13,7 @@ public class Main {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("io.welldev.config");
 
 //        GenreDAO genreDAO = context.getBean(GenreDAO.class);
-        ActorDAO actorDAO = context.getBean(ActorDAO.class);
+        ActorService actorService = context.getBean(ActorService.class);
 //        DirectorDAO directorDAO = context.getBean(DirectorDAO.class);
 //        CountryDAO countryDAO = context.getBean(CountryDAO.class);
 //        MovieDAO movieDAO = context.getBean(MovieDAO.class);
@@ -28,8 +27,20 @@ public class Main {
 //        ActorRepo actorRepo = new ActorRepo() {
 //        }
 //        Actor actor = actorDAO.actorRepo.findById(1L).get();
-        Actor actor = actorDAO.get(1L);
-        System.out.println(actor.getName());
+//        Actor actor = actorDAO.get(1L);
+//        System.out.println(actor.getName());
+
+//        List<Actor> actor = actorService.findActorByName("Abhishek Bachchan");
+//        for (Actor actor1:
+//             actor) {
+//            System.out.println(actor1.getId());
+//        }
+
+        List<Actor> actor = actorService.getAll();
+        for (Actor actor1:
+                actor) {
+            System.out.println(actor1.getName());
+        }
 
 
     }

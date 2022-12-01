@@ -3,28 +3,24 @@ package io.welldev.dao;
 import io.welldev.model.Actor;
 import io.welldev.repo.ActorRepo;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 //@RequiredArgsConstructor
 @AllArgsConstructor
 @Component
 @Transactional
-public class ActorDAO {
+public class ActorService {
 
 //    @PersistenceContext
 //    private EntityManager entityManager;
 
     @Autowired
 //    @Getter
-    public ActorRepo<Actor> actorRepo;
+    public ActorRepo actorRepo;
 
 //    public void add(Actor actor) {
 //        entityManager.persist(actor);
@@ -43,15 +39,18 @@ public class ActorDAO {
         return actor;
     }
 
+    public List<Actor> findActorByName(String name) {
+        return actorRepo.findActorByName(name).get();
+    }
+
 //    public void delete(Actor actor) {
 //        entityManager.remove(actor);
 //    }
 
-//    public List<Actor> getAll() {
-//        List<Actor> resultList = entityManager.createQuery("from Actor").getResultList();
-//
-//        return resultList;
-//    }
+    public List<Actor> getAll() {
+
+        return actorRepo.findActor$().get();
+    }
 
 //    @Transactional
 //    public void update(Actor actor) {

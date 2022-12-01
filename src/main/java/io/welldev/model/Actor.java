@@ -7,7 +7,8 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity(name = "actoRRR")
+@Table(name = "actor")
 public class Actor {
     @Id
     @SequenceGenerator(initialValue=1, name = "project_seq4", sequenceName = "project_seq4", allocationSize = 1)
